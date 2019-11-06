@@ -5,7 +5,7 @@ const CardData = props => {
         <div className="card">
             <h4 className="date">{props.date}</h4>
             <h1>{props.title}</h1>
-            <img src={props.src}/>
+            <img src={props.src} alt="NASA Space Cards"/>
             <p className="description">{props.description}</p> 
         </div>
     )
