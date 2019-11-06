@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardData from "./CardData";
-import DatePicker, { value } from 'react-date-picker';
+import MyApp from './DatePicker';
 
+
+let currentDate = document.getElementsByClassName("currentDate")[0];
+console.log(currentDate)
 export default function CardGrid(props){
     const [cards, setCards] = useState({});
     useEffect(() => {
