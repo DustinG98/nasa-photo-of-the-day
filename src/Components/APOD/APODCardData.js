@@ -133,16 +133,16 @@ const useStyles = makeStyles(theme => ({
               Daily APOD Pictures
             </Typography>
             <DatePicker
-            onChange={setDate}
+            onChange={date => {
+              setDate(date);
+              onDateChange();
+            }}
             value={date}
             maxDate={new Date()}
             />
             <Moment format="YYYY-MM-DD" className="currentDate">
               {date}
             </Moment>
-            {/* <Button variant="contained" color="primary" className={classes.button} onClick={sendRequest}>
-              Refresh
-            </Button> */}
             <Typography variant="h5" component="h2">
             {cards.title}
             </Typography>
