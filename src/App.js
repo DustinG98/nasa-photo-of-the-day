@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import CardGrid from "./Components/CardGrid"
-import MyApp from "./Components/DatePicker"
+
 
 function App() {
   return (
@@ -11,7 +11,6 @@ function App() {
         app! Have fun!
       </p> */}
 
-      <MyApp />
       <CardGrid />
     </div>
   );
