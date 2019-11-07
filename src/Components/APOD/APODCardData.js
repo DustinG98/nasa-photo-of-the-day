@@ -124,7 +124,7 @@ const useStyles = makeStyles(theme => ({
     const onDateChange = () => {
       setTimeout(() => {
         sendRequest();
-      }, 1000)
+      }, 400)
     }
     return (
         <Card className={classes.card}>
