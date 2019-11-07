@@ -1,17 +1,59 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, Component } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import CardMedia from '@material-ui/core/CardMedia';
-import MyApp from './DatePicker'
 import axios from "axios";
 import Button from '@material-ui/core/Button';
+import DatePicker from 'react-date-picker';
+import Moment from 'react-moment';
 
 let ApodCurrentDate;
 window.addEventListener('load', function () {
     ApodCurrentDate = document.getElementsByClassName("currentDate")[0].textContent;
 })
+
+
+
+
+class MyApp extends Component {
+     
+    
+    state = {
+      date: new Date(),
+    }
+
+   
+    onChange = date => {
+        this.setState({ date })
+        SimpleCard.sendRequest();
+    }
+    
+    
+    render() {
+      
+      return (
+        <div>
+          <DatePicker
+            onChange={this.onChange}
+            value={this.state.date}
+            maxDate={new Date()}
+          />
+          <p  className="currentDate">
+           <Moment format="YYYY-MM-DD">
+              {this.state.date}
+            </Moment>
+          </p>
+            
+        </div>
+        
+      );
+    }
+  }
+
+
+export {MyApp};
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -47,6 +89,7 @@ const useStyles = makeStyles(theme => ({
     const classes = useStyles();
     const { title } = props;
     const [cards, setCards] = useState({});
+    const [date, setDate] = useState(new Date())
     const [isSending, setIsSending] = useState(false)
     const isMounted = useRef(true)
     
@@ -77,16 +120,29 @@ const useStyles = makeStyles(theme => ({
         if(isMounted.current)
           setIsSending(false)
     }, [isSending])
+
+    const onDateChange = () => {
+      setTimeout(() => {
+        sendRequest();
+      }, 1000)
+    }
     return (
         <Card className={classes.card}>
         <CardContent>
-            <Typography variant="h3" component="h2">
-              APOD Pictures
+            <Typography variant="h4" component="h2">
+              Daily APOD Pictures
             </Typography>
-            <MyApp />
-            <Button variant="contained" color="primary" className={classes.button} onClick={sendRequest}>
+            <DatePicker
+            onChange={setDate}
+            value={date}
+            maxDate={new Date()}
+            />
+            <Moment format="YYYY-MM-DD" className="currentDate">
+              {date}
+            </Moment>
+            {/* <Button variant="contained" color="primary" className={classes.button} onClick={sendRequest}>
               Refresh
-            </Button>
+            </Button> */}
             <Typography variant="h5" component="h2">
             {cards.title}
             </Typography>

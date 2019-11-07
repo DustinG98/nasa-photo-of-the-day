@@ -1,6 +1,6 @@
 import React from "react";
 
-import SimpleCard from "./APODCardData";
+import SimpleCard from "./APOD/APODCardData";
 
 
 
