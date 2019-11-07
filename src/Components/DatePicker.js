@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DatePicker from 'react-date-picker';
 import Moment from 'react-moment';
-import CardGrid, { newDate } from './CardGrid'
+import CardGrid from './CardGrid'
 
 
 class MyApp extends Component {
@@ -19,10 +19,8 @@ class MyApp extends Component {
     
     
     render() {
-      
       return (
         <div>
-          <button className="refreshBtn" onClick={CardGrid.fetchRequest} >Refresh</button>
           <DatePicker
             onChange={this.onChange}
             value={this.state.date}
