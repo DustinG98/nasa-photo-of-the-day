@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CardData from "./CardData";
+import SimpleCard from "./CardData";
 
 let currentDate;
 window.addEventListener('load', function () {
@@ -31,11 +31,11 @@ export default function CardGrid(props){
             console.log(err)
         })
     }
-
     return (
         <div className="cards-container">
             <button className="refreshBtn" onClick={update} >Refresh</button>
-            <CardData title={cards.title} date={cards.date} description={cards.explanation} src={cards.hdurl} />
+            <SimpleCard title={cards.title} date={cards.date} description={cards.explanation} src={cards.hdurl} />
         </div>
     )
 }
+
