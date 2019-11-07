@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DatePicker from 'react-date-picker';
 import Moment from 'react-moment';
-import CardGrid from './CardGrid'
 
 
 class MyApp extends Component {

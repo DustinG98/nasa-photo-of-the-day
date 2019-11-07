@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CardData from "./CardData";
-import MyApp from './DatePicker';
-import { updateExpression } from "@babel/types";
 
 let currentDate;
 window.addEventListener('load', function () {
